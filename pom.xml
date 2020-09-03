@@ -37,6 +37,23 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
+                <rules>
+                    <rule>
+                        <element>BUNDLE</element>
+                        <limits>
+                            <limit>
+                                <counter>BRANCH</counter>
+                                <value>COVEREDRATIO</value>
+                                <minimum>100%</minimum>
+                            </limit>
+                            <limit>
+                                <counter>CLASS</counter>
+                                <value>MISSEDCOUNT</value>
+                                <maximum>0</maximum>
+                            </limit>
+                        </limits>
+                    </rule>
+                </rules>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -56,6 +73,7 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
 
 
