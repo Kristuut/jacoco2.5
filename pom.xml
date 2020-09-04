@@ -37,31 +37,12 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.5</version>
-                <configuration>
-                <rules>
-                    <rule>
-                        <element>BUNDLE</element>
-                        <limits>
-                            <limit>
-                                <counter>BRANCH</counter>
-                                <value>COVEREDRATIO</value>
-                                <minimum>100%</minimum>
-                            </limit>
-                            <limit>
-                                <counter>CLASS</counter>
-                                <value>MISSEDCOUNT</value>
-                                <maximum>0</maximum>
-                            </limit>
-                        </limits>
-                    </rule>
-                </rules>
-                </configuration>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
-                        <phase>initialize</phase>
+<!--                        <phase>initialize</phase>-->
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>check</goal>
                         </goals>
                     </execution>
                     <execution>
@@ -72,6 +53,25 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <element>BUNDLE</element>
+                            <limits>
+                                <limit>
+                                    <counter>BRANCH</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>100%</minimum>
+                                </limit>
+                                <limit>
+                                    <counter>CLASS</counter>
+                                    <value>MISSEDCOUNT</value>
+                                    <maximum>100%</maximum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
             </plugin>
         </plugins>
     </build>
